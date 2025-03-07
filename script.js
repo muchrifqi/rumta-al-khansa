@@ -1,10 +1,11 @@
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyAnJSYcFN8FaAYdOe6uTY01QNBYpjavr38",
+  authDomain: "presensi-pegawai-a6982.firebaseapp.com",
+  projectId: "presensi-pegawai-a6982",
+  storageBucket: "presensi-pegawai-a6982.firebasestorage.app",
+  messagingSenderId: "854447126365",
+  appId: "1:854447126365:web:da08402128bf7026659ab4",
+  measurementId: "G-5VYERY160S"
 };
 
 firebase.initializeApp(firebaseConfig);
