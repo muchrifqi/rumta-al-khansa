@@ -1,6 +1,14 @@
+// Pastikan Firebase sudah tersedia
+if (!window.firebase) {
+    console.error("Firebase belum dimuat!");
+} else {
+    console.log("Firebase berhasil dimuat.");
+}
+
 // Inisialisasi Firebase Auth & Firestore
-const auth = firebase.auth();
-const db = firebase.firestore();
+const auth = window.firebase.auth();
+const db = window.firebase.firestore();
+
 
 // Fungsi Login
 window.login = function () {
