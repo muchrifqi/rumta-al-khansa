@@ -1,4 +1,4 @@
-// Inisialisasi Firebase
+// Pastikan Firebase sudah diinisialisasi sebelum menggunakan auth
 const auth = firebase.auth();
 
 // Pastikan login() tersedia di global scope
