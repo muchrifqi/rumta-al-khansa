@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendataan Berhasil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h2>Pendataan Berhasil!</h2>
+        <p>Syukran!</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
+    <!-- Konfigurasi Firebase -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAnJSYcFN8FaAYdOe6uTY01QNBYpjavr38",
+            authDomain: "presensi-pegawai-a6982.firebaseapp.com",
+            projectId: "presensi-pegawai-a6982",
+            storageBucket: "presensi-pegawai-a6982.appspot.com",
+            messagingSenderId: "854447126365",
+            appId: "1:854447126365:web:da08402128bf7026659ab4",
+            measurementId: "G-5VYERY160S"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script>
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = "index.html"; // Kembali ke halaman login
+            });
+        }
+    </script>
+</body>
+</html>
