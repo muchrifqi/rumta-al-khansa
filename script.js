@@ -6,7 +6,12 @@ const db = firebase.firestore();
 function login() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    
+
+    if (!email || !password) {
+        document.getElementById("status").innerText = "Email dan password harus diisi!";
+        return;
+    }
+
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             const user = userCredential.user;
@@ -15,6 +20,4 @@ function login() {
         })
         .catch((error) => {
             console.error("Login gagal:", error.message);
-            document.getElementById("status").innerText = "Login gagal: " + error.message;
-        });
-}
+            document.getElementById("status").innerText =
