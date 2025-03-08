@@ -15,7 +15,7 @@
         <p id="status"></p>
     </div>
 
-       <!-- Firebase SDK -->
+    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
@@ -33,13 +33,12 @@
         };
 
         // Inisialisasi Firebase
-        firebase.initializeApp(firebaseConfig);
-        console.log("Firebase berhasil diinisialisasi!");
-    </script>
-
-    <!-- Load script.js setelah Firebase siap -->
-    <script src="script.js"></script>
-
+        try {
+            firebase.initializeApp(firebaseConfig);
+            console.log("Firebase berhasil diinisialisasi!");
+        } catch (error) {
+            console.error("Error inisialisasi Firebase:", error);
+        }
     </script>
 
     <!-- Load script.js setelah Firebase siap -->
