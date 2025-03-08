@@ -1,9 +1,8 @@
-// Inisialisasi Auth dan Firestore
+// Inisialisasi Firebase
 const auth = firebase.auth();
-const db = firebase.firestore();
 
-// Fungsi Login
-function login() {
+// Pastikan login() tersedia di global scope
+window.login = function () {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
@@ -16,4 +15,4 @@ function login() {
             console.error("Error saat login:", error);
             document.getElementById("status").innerText = "Login Gagal: " + error.message;
         });
-}
+};
