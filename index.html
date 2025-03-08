@@ -1,43 +1,24 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presensi Pegawai</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div id="app">
-        <h2>Login</h2>
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="login()">Login</button>
-        <p id="status"></p>
-    </div>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+<!-- Konfigurasi Firebase -->
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyAnJSYcFN8FaAYdOe6uTY01QNBYpjavr38",
+        authDomain: "presensi-pegawai-a6982.firebaseapp.com",
+        projectId: "presensi-pegawai-a6982",
+        storageBucket: "presensi-pegawai-a6982.appspot.com",
+        messagingSenderId: "854447126365",
+        appId: "1:854447126365:web:da08402128bf7026659ab4",
+        measurementId: "G-5VYERY160S"
+    };
 
-    <script>
-        // Firebase Configuration (Perbaikan storageBucket)
-        const firebaseConfig = {
-            apiKey: "AIzaSyAnJSYcFN8FaAYdOe6uTY01QNBYpjavr38",
-            authDomain: "presensi-pegawai-a6982.firebaseapp.com",
-            projectId: "presensi-pegawai-a6982",
-            storageBucket: "presensi-pegawai-a6982.appspot.com",  // ✅ Perbaikan di sini
-            messagingSenderId: "854447126365",
-            appId: "1:854447126365:web:da08402128bf7026659ab4",
-            measurementId: "G-5VYERY160S"
-        };
+    // Inisialisasi Firebase sebelum script.js dipanggil
+    firebase.initializeApp(firebaseConfig);
+    console.log("Firebase berhasil diinisialisasi:", firebase.app().name);
+</script>
 
-        // Inisialisasi Firebase
-        firebase.initializeApp(firebaseConfig);
-        console.log("Firebase berhasil diinisialisasi:", firebase.app().name);
-    </script>
-
-    <!-- Load file script.js -->
-    <script src="script.js"></script>
-</body>
-</html>
+<!-- Load script.js setelah Firebase siap -->
+<script src="script.js"></script>
