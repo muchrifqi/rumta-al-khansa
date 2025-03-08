@@ -8,11 +8,20 @@
 </head>
 <body>
     <div id="app">
-        <h2>Login</h2>
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="login()">Login</button>
-        <p id="status"></p>
+        <!-- Halaman Login -->
+        <div id="login-page" class="page">
+            <h2>Login Presensi</h2>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+            <p id="login-status"></p>
+        </div>
+
+        <!-- Halaman Konfirmasi -->
+        <div id="confirmation-page" class="page hidden">
+            <h1>Pendataan Berhasil!</h1>
+            <h2>Syukran!</h2>
+        </div>
     </div>
 
     <!-- Firebase SDK -->
@@ -20,28 +29,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
 
-    <!-- Inisialisasi Firebase -->
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyAnJSYcFN8FaAYdOe6uTY01QNBYpjavr38",
-            authDomain: "presensi-pegawai-a6982.firebaseapp.com",
-            projectId: "presensi-pegawai-a6982",
-            storageBucket: "presensi-pegawai-a6982.appspot.com",
-            messagingSenderId: "854447126365",
-            appId: "1:854447126365:web:da08402128bf7026659ab4",
-            measurementId: "G-5VYERY160S"
-        };
-
-        // Inisialisasi Firebase
-        try {
-            firebase.initializeApp(firebaseConfig);
-            console.log("Firebase berhasil diinisialisasi!");
-        } catch (error) {
-            console.error("Error inisialisasi Firebase:", error);
-        }
-    </script>
-
-    <!-- Load script.js setelah Firebase siap -->
+    <!-- Script JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
