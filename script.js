@@ -1,7 +1,8 @@
-// Pastikan Firebase sudah diinisialisasi sebelum menggunakan auth
+// Inisialisasi Firebase Auth & Firestore
 const auth = firebase.auth();
+const db = firebase.firestore();
 
-// Pastikan login() tersedia di global scope
+// Fungsi Login
 window.login = function () {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
