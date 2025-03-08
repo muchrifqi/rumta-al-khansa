@@ -1,75 +1,19 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyAnJSYcFN8FaAYdOe6uTY01QNBYpjavr38",
-  authDomain: "presensi-pegawai-a6982.firebaseapp.com",
-  projectId: "presensi-pegawai-a6982",
-  storageBucket: "presensi-pegawai-a6982.firebasestorage.app",
-  messagingSenderId: "854447126365",
-  appId: "1:854447126365:web:da08402128bf7026659ab4",
-  measurementId: "G-5VYERY160S"
-};
-
-firebase.initializeApp(firebaseConfig);
+// Inisialisasi Auth dan Firestore
 const auth = firebase.auth();
 const db = firebase.firestore();
 
+// Fungsi Login
 function login() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    
+
     auth.signInWithEmailAndPassword(email, password)
         .then(userCredential => {
-            const user = userCredential.user;
+            console.log("Login sukses:", userCredential.user);
             document.getElementById("status").innerText = "Login Berhasil!";
-            checkLocation(user.uid);
         })
         .catch(error => {
+            console.error("Error saat login:", error);
             document.getElementById("status").innerText = "Login Gagal: " + error.message;
         });
-}
-
-function checkLocation(userId) {
-    navigator.geolocation.getCurrentPosition(position => {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-        
-        const lokasiValid = [
-            { lat: -6.589108, lng: 106.821829 },
-            { lat: -6.592279, lng: 106.822581 }
-        ];
-
-        const isValid = lokasiValid.some(loc => getDistance(loc.lat, loc.lng, lat, lng) <= 20);
-        
-        if (isValid) {
-            recordPresence(userId, lat, lng);
-        } else {
-            document.getElementById("status").innerText = "Di luar lokasi!";
-        }
-    });
-}
-
-function recordPresence(userId, lat, lng) {
-    db.collection("presensi").add({
-        userId: userId,
-        waktu: firebase.firestore.FieldValue.serverTimestamp(),
-        tipe: "masuk",
-        lokasi: new firebase.firestore.GeoPoint(lat, lng)
-    }).then(() => {
-        document.getElementById("status").innerText = "Pendataan Berhasil! Syukran!";
-        setTimeout(() => auth.signOut(), 600000); // Logout otomatis 10 menit
-    });
-}
-
-function getDistance(lat1, lon1, lat2, lon2) {
-    function toRad(value) {
-        return value * Math.PI / 180;
-    }
-    let R = 6371e3; // Earth radius in meters
-    let φ1 = toRad(lat1), φ2 = toRad(lat2);
-    let Δφ = toRad(lat2 - lat1);
-    let Δλ = toRad(lon2 - lon1);
-    let a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-            Math.cos(φ1) * Math.cos(φ2) *
-            Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c;
 }
