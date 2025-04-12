@@ -386,6 +386,8 @@
             display: inline-block;
             width: 250px;
             margin-top: 2.5rem;
+            border-top: 1px solid #000;
+            padding-top: 15px;
             position: relative;
         }
         
@@ -546,6 +548,26 @@
             .second-page-content {
                 margin-top: 50px;
             }
+        }
+        .stempel-container {
+        position: relative;
+        right: 0;
+        margin-bottom: 10px;
+        }
+        
+        .stempel-mumtaz {
+            position: absolute;
+            top: -38px;
+            right: -6%;
+            transform: translateX(-50%) rotate(-10deg);
+            color: #e74c3c;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 35px;
+            z-index: 1;
+            border: 5px solid #e74c3c;
+            border-radius: 50%;
+            padding: 20px;
         }
     </style>
 </head>
@@ -753,9 +775,12 @@
             </div>
             
             <div class="signature-area">
-                <div class="signature-line">
-                    <div class="signature-stamp">
-                        <span class="material-icons">check</span>
+                <div class="stempel-container">
+                    <div class="stempel-mumtaz">Mumtaz</div>
+                    <div class="signature-line">
+                        <div class="signature-stamp">
+                            <span class="material-icons">check</span>
+                        </div>
                     </div>
                 </div>
                 <div class="signature">Alawiyah</div>
